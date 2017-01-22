@@ -1,8 +1,103 @@
 @import 'reset';
 
+:root {
+  --Blauw: #3c5969;
+  --Donker-Groen: #447676;
+  --Groen: #439982;
+  --Licht-Groen: #a2cc77;
+  --Geel: #ebca69;
+}
+
 body {
-  font-family: 'Helvetica neue', Helvetica, Arial, sans-serif;
-  font-size: 3rem;
-  margin: 2rem;
-  background-color: red;
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-size: 1.5rem;
+}
+
+.container, .fixed-nav {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.fixed-nav {
+  height: 100vh;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+.icon {
+  display: block;
+  width: 2vw;
+  height: 2vw;
+  margin: 1rem;
+}
+
+.top-nav {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  height: 5vh;
+
+  margin: 2rem 2rem 0;
+
+  & .menu {
+    background: url(../assets/svg/Icons/Menu.svg) no-repeat center;
+    background-size: contain;
+  }
+
+  & .search {
+    background: url(../assets/svg/Icons/Search.svg) no-repeat center;
+    background-size: contain;
+  }
+
+  & .logo {
+    background: url(../assets/img/dok/dokgentlogo.png) no-repeat center;
+    background-size: contain;
+    width: 10vw;
+    height: 3vw;
+    margin-left: auto;
+  }
+}
+
+.row-container {
+  margin-top: 2vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  height: 85vh;
+}
+
+main {
+  flex-grow: 1;
+  background: var(--Geel);
+  height: 100%;
+  width: 90vh;
+}
+
+.social {
+  flex-shrink: 1;
+
+  & .fb {
+    text-align: center;
+    background: url(../assets/svg/Icons/Facebook.svg) no-repeat center;
+    background-size: contain;
+  }
+
+  & .twitter {
+    background: url(../assets/svg/Icons/Twitter.svg) no-repeat center;
+    background-size: contain;
+  }
+}
+
+.street {
+  width: 7vh;
+  flex-shrink: 1;
+  font-size: 1.3rem;
+  white-space: nowrap;
+  text-align: right;
+  align-self: center;
+  transform: rotate(90deg);
+  color: var(--Blauw);
 }

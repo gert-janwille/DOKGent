@@ -1,0 +1,17 @@
+@font-face {
+  font-family: Avenir;
+  src: url(./fonts/Avenir.woff2) format('woff2'), url(./fonts/Avenir.woff) format('woff');
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: Avenir;
+  src: url(./fonts/AvenirBold.woff2) format('woff2'), url(./fonts/AvenirBold.woff) format('woff');
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: Avenir;
+  src: url(./fonts/AvenirDemi.woff2) format('woff2'), url(./fonts/AvenirDemi.woff) format('woff');
+  font-weight: 100;
+}
