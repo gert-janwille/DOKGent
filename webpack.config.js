@@ -28,7 +28,7 @@ const copy = new CopyWebpackPlugin([{
 });
 
 const config = {
-  
+
   // no HTML entry points for production build (bundled in JavaScript)
   entry: [
     require.resolve(`react-dev-utils/webpackHotDevClient`),
@@ -43,7 +43,7 @@ const config = {
 
   output: {
     path: path.join(__dirname, `dist`),
-    filename: `js/[name].[hash].js`,
+    filename: `js/script.js`,
     publicPath
   },
 
@@ -128,7 +128,7 @@ const config = {
 
 };
 
-if(process.env.NODE_ENV === `production`){
+if (process.env.NODE_ENV === `production`) {
 
   //remove hot reloading client
   config.entry.shift();
@@ -166,7 +166,7 @@ if(process.env.NODE_ENV === `production`){
     })
   ];
 
-}else{
+} else {
 
   // only include HTMLs in NODE_ENV=development
   // for Hot Reloading

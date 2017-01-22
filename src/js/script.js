@@ -1,6 +1,9 @@
-const init = () => {
+import es6Promise from 'es6-promise';
+// import fetch from 'isomorphic-fetch';
+es6Promise.polyfill();
 
-  console.log('Hello Boilerplate')
+const init = () => {
+  console.log(`Hello Boilerplate`);
 
 };
 
