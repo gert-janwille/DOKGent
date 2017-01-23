@@ -13,14 +13,121 @@ body {
   font-size: 1.5rem;
 }
 
+nav {
+  background: var(--Donker-Groen);
+
+  z-index: -10;
+  position: fixed;
+
+  display: flex;
+  flex-direction: column;
+
+  height: 100vh;
+  min-width: 20vw;
+
+  & .nav-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    overflow: scroll;
+
+    & li {
+
+      border-bottom: 2px solid var(--Blauw);
+
+      & a {
+        display: inline-block;
+
+        width: 100%;
+        height: 100%;
+        padding: 4vh 2vw;
+
+        text-decoration: none;
+        font-weight: 100;
+        color: white;
+
+        transition: all .3s ease;
+
+        &:hover {
+          background: var(--Blauw);
+        }
+      }
+    }
+
+    & .w-icon {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      & p {
+        margin-right: 2rem;
+      }
+
+      & .close {
+        background: url(../assets/svg/Icons/Close.svg) no-repeat center;
+      }
+
+      & .more-menu {
+        background: url(../assets/svg/Icons/More-menu.svg) no-repeat center;
+      }
+
+      & span {
+        background-size: contain;
+        width: 1.5rem;
+        height: 1.5rem;
+      }
+    }
+
+    & .align-right {
+      justify-content: flex-end;
+    }
+
+    & .more-list a {
+      font-weight: normal;
+      padding-left: 4vw;
+    }
+  }
+}
+
+.close-list {
+  display: none;
+  transition: all .5s ease;
+}
+
+.open-list {
+  display: inline;
+  transition: all .5s ease;
+}
+
 .container, .fixed-nav {
+  margin: 0;
+  z-index: 1;
+  background: white;
   display: flex;
   flex-direction: column;
   height: 100%;
 }
 
+.nav-open {
+  position: absolute;
+  width: 100vw;
+  margin-left: 20vw;
+  display: block;
+  box-shadow: -5px 0 10px rgba(0, 0, 0, .2);
+  transition: all .5s ease;
+}
+
+.nav-close {
+  transition: all .5s ease;
+}
+
 .fixed-nav {
   height: 100vh;
+}
+
+.att-fixed {
+  position: fixed;
+  background-attachment: fixed;
 }
 
 .hidden {
@@ -100,4 +207,158 @@ main {
   align-self: center;
   transform: rotate(90deg);
   color: var(--Blauw);
+}
+
+.home-header {
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+
+  margin: 0 5vw;
+  color: white;
+}
+
+.top-header {
+  display: flex;
+  align-items: flex-end;
+  width: 100%;
+  height: 25%;
+  border-bottom: 3px solid white;
+
+  & h1 {
+    line-height: 60%;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 15vw;
+  }
+
+  & h2 {
+    font-size: 3vw;
+    margin-left: 2vw;
+  }
+}
+
+.bottom-header {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+
+  & h1 {
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 14vw;
+  }
+
+  & p {
+    font-weight: normal;
+    margin: 1vh 3vw 0 2vw;
+    line-height: 180%;
+  }
+}
+
+.quick-nav {
+  z-index: 0;
+  position: absolute;
+  bottom: 0;
+
+  width: 100%;
+  height: 20vh;
+
+  display: flex;
+  justify-content: center;
+
+  & ul {
+    width: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    & li {
+      z-index: 1;
+      height: 100%;
+      width: 100%;
+      margin: .4vw;
+
+      transition: all .5s ease;
+
+      & a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        background: url(../assets/img/menu/praktisch.jpg);
+        background-size: cover;
+
+        width: 100%;
+        height: 100%;
+
+        text-decoration: none;
+
+        & p {
+          color: white;
+          font-weight: bold;
+          font-size: 2rem;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          line-height: 160%;
+          width: 100%;
+          height: 100%;
+          background: rgba(60, 89, 105, .5);
+
+          &:hover {
+            color: var(--Geel);
+          }
+        }
+      }
+
+      &:hover {
+        z-index: 2;
+        margin-bottom: 5vh;
+      }
+    }
+  }
+}
+
+.zones {
+  position: absolute;
+  bottom: 0;
+
+  width: 100%;
+  height: 20vh;
+
+  display: flex;
+  justify-content: center;
+
+  & .close-zones {
+    margin: 0 1vw;
+
+    & a {
+      display: inline-block;
+      width: 100%;
+      height: 100%;
+      background: url(../assets/svg/Icons/Arrow-left.svg) no-repeat center;
+      background-size: contain;
+      transition: all .3s ease;
+
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
+  }
+}
+
+.quick-invisible {
+  display: none;
+  visibility: hidden;
+}
+
+.home-container {
+  z-index: 10;
+  background: pink;
+  height: 100vh;
 }
