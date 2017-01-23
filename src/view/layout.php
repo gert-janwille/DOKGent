@@ -2,6 +2,9 @@
 <html>
   <head>
     <meta charset="utf-8">
+    <meta name="description" content="De ontmoetingsplek voor elke Gentenaar, een hangplek voor piepjong, jong, minder jong en ronduit oud. Maar ook een platform voor creatie en een werkplek, een plaats voor organisaties of indivduen op zoek naar samenwerking en inspirerende kruisbestuivingen.">
+    <meta name="keywords" content="DOK, Gent, 2017">
+    <meta name="author" content="Gert-Jan Wille">
     <title>DOK</title>
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <?php echo $css;?>
