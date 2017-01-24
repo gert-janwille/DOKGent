@@ -1,27 +1,41 @@
-import es6Promise from 'es6-promise';
+import {ToggleData} from './data/';
+
 import {toggleMenu} from './modules/util/Toggle';
+import {mapVal} from './modules/util/Mathutil';
+
+import {isArray} from 'lodash';
 // import fetch from 'isomorphic-fetch';
-es6Promise.polyfill();
+
+let bar, deviceHeight;
 
 const init = () => {
-  console.log(`Hello Boilerplate`);
+  const $progressFill = document.querySelector(`.fill-load`);
 
-  const $container = document.querySelector(`.container`);
-  const $zones = document.querySelector(`.zones`);
-  const $main = document.querySelector(`.quick-main-nav`);
+  bar = document.querySelector(`.progress-bar`);
+  deviceHeight = bar.clientHeight;
 
-  document.querySelector(`.menu`).addEventListener(`click`, e =>
-    toggleMenu(e, $container, `nav-close`, `nav-open`));
-  document.querySelector(`.close-menu`).addEventListener(`click`, e =>
-    toggleMenu(e, $container, `nav-close`, `nav-open`));
+  ToggleData.map(el => document.querySelector(el.selector).addEventListener(`click`, e => toggleMenu(e, (isArray(el.element)) ? [document.querySelector(el.element[0]), document.querySelector(el.element[1])] : document.querySelector(el.element), el.stateI, el.stateII)));
 
-  document.querySelector(`.toggle-list`).addEventListener(`click`, e =>
-    toggleMenu(e, document.querySelector(`.more-list`), `close-list`, `open-list`));
+  window.addEventListener(`resize`, () => deviceHeight = bar.clientHeight);
 
-  document.querySelector(`.zones-btn`).addEventListener(`click`, e =>
-    toggleMenu(e, [$zones, $main], `quick-invisible`, `quick-visible`));
-  document.querySelector(`.close-zones`).addEventListener(`click`, e =>
-    toggleMenu(e, [$zones, $main], `quick-visible`, `quick-invisible`));
+  document.addEventListener(`scroll`, () => {
+    window.requestAnimationFrame(() => scrollProgressBar($progressFill, deviceHeight));
+  });
+
+  scrollProgressBar($progressFill, deviceHeight);
+
 };
+
+const scrollProgressBar = (progressFill, deviceHeight) => {
+
+  const max = (document.body.scrollHeight - window.innerHeight) - deviceHeight;
+  const scroll = window.scrollY;
+
+  if (scroll >= deviceHeight) bar.style.top = `${scroll}px`;
+
+  const scrolVal = mapVal(scroll - deviceHeight, 0, max, 0, 100);
+  progressFill.style.height = `${scrolVal}%`;
+};
+
 
 init();
