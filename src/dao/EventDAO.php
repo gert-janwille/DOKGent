@@ -84,6 +84,18 @@ class EventDAO extends DAO {
     return $stmt->fetch(PDO::FETCH_ASSOC);
   }
 
+  public function selectAll($limit = array()) {
+    $sql = "SELECT * FROM `ma3_dok_events`";
+    if (!empty($limit)) {
+      $sql = "SELECT * FROM `ma3_dok_events` ORDER BY `start` ASC LIMIT $limit";
+      $stmt = $this->pdo->prepare($sql);
+    }else{
+      $stmt = $this->pdo->prepare($sql);
+    }
+    $stmt->execute();
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+  }
+
   private function _getEventIdsFromResult(&$result) {
     $eventIds = array();
     foreach($result as &$row) {

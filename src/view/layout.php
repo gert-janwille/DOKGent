@@ -62,9 +62,14 @@
         <article class="top-nav">
           <a href="#" class="menu icon"><span class="hidden">Menu</span></a>
           <a href="#" class="search icon"><span class="hidden">Zoek</span></a>
+          <form class="search-header away" action="index.php" method="GET">
+            <input type="text" name="search" placeholder="Naar wat zoekt u?">
+            <input type="submit" name="action" value="Zoeken">
+          </form>
           <a href="index.php" class="logo icon"><span class="hidden">DOK</span></a>
         </article>
 
+        <div class="search-overlay away"></div>
 
         <div class="row-container">
           <div class="social">
@@ -87,34 +92,34 @@
                 <h1>2017</h1>
                 <p>De ontmoetingsplek voor elke Gentenaar, een hangplek voor piepjong, jong, minder jong en ronduit oud. Maar ook een platform voor creatie en een werkplek, een plaats voor organisaties of indivduen op zoek naar samenwerking en inspirerende kruisbestuivingen.</p>
               </article>
+              <div class="quick-nav">
+                <ul class="quick-main-nav quick-visible">
+                  <li><a href="#" class="zones-btn"><p>Zones</p></a></li>
+                  <li><a href="#"><p>Programma</p></a></li>
+                  <li><a href="#"><p>Praktisch</p></a></li>
+                  <li><a href="#"><p>Nieuws</p></a></li>
+                  <li><a href="#"><p>DokBewoners</p></a></li>
+                </ul>
+
+                <ul class="zones quick-invisible">
+                  <li><a href="#"><p>Zondag</p></a></li>
+                  <li><a href="#"><p>Kantine</p></a></li>
+                  <li><a href="#"><p>Park</p></a></li>
+                  <li><a href="#"><p>Markt</p></a></li>
+                  <li><a href="#"><p>Bewoners</p></a></li>
+                  <li><a href="#"><p>Keuken</p></a></li>
+                  <li><a href="#"><p>Sport</p></a></li>
+                  <li><a href="#"><p>Tank</p></a></li>
+                  <div class="close-zones icon"><a href="#"><span class="hidden">close</span></a></div>
+                </ul>
+              </div>
             </section>
+
             <?php } ?>
           </main>
 
           <p class="street">Splitsing Koopvaardijlaan – Afrikalaan 9000 Gent</p>
 
-        </div>
-
-        <div class="quick-nav">
-          <ul class="quick-main-nav quick-visible">
-            <li><a href="#" class="zones-btn"><p>Zones</p></a></li>
-            <li><a href="#"><p>Programma</p></a></li>
-            <li><a href="#"><p>Praktisch</p></a></li>
-            <li><a href="#"><p>Nieuws</p></a></li>
-            <li><a href="#"><p>DokBewoners</p></a></li>
-          </ul>
-
-          <ul class="zones quick-invisible">
-            <li><a href="#"><p>Zondag</p></a></li>
-            <li><a href="#"><p>Kantine</p></a></li>
-            <li><a href="#"><p>Park</p></a></li>
-            <li><a href="#"><p>Markt</p></a></li>
-            <li><a href="#"><p>Bewoners</p></a></li>
-            <li><a href="#"><p>Keuken</p></a></li>
-            <li><a href="#"><p>Sport</p></a></li>
-            <li><a href="#"><p>Tank</p></a></li>
-            <div class="close-zones icon"><a href="#"><span class="hidden">close</span></a></div>
-          </ul>
         </div>
 
       </section>

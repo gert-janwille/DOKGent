@@ -1,5 +1,4 @@
 <section class="home-container">
-
   <article class="progress-bar">
     <ul>
       <li>01</li>
@@ -27,45 +26,22 @@
 
   <article class="program">
     <h3 class="big-letter letter-o">O</h3>
-    <div class="item">
-      <img src="./assets/img/program/elizabeth-van-dam.jpg" width="100%" alt="Creatie van Elizabeth van Dam">
-      <div class="info">
-        <h1>Elizabeth van Dam</h1>
-        <h2>21 Mei</h2>
-      </div>
-    </div>
 
-    <div class="item">
-      <img src="./assets/img/program/elizabeth-van-dam.jpg" width="100%" alt="Creatie van Elizabeth van Dam">
+    <?php foreach ($events as $event):
+      $images = explode(" ", $event['image']);
+    ?>
+    <a href="#" class="item">
+      <img src="./assets/img/program/<?php echo str_replace(array(";",":"), "", $event['title']) . "/" . $images[0] ?>" width="100%" alt="<?php echo $event['title'] ?>">
       <div class="info">
-        <h1>Elizabeth van Dam</h1>
-        <h2>21 Mei</h2>
+        <h1><?php echo strtolower($event['title']); ?></h1>
+        <h2><?php echo date('d M', strtotime($event['start'])); ?></h2>
       </div>
-    </div>
-    <div class="item">
-      <img src="./assets/img/program/elizabeth-van-dam.jpg" width="100%" alt="Creatie van Elizabeth van Dam">
-      <div class="info">
-        <h1>Elizabeth van Dam</h1>
-        <h2>21 Mei</h2>
-      </div>
-    </div>
-    <div class="item">
-      <img src="./assets/img/program/elizabeth-van-dam.jpg" width="100%" alt="Creatie van Elizabeth van Dam">
-      <div class="info">
-        <h1>Elizabeth van Dam</h1>
-        <h2>21 Mei</h2>
-      </div>
-    </div>
-    <div class="item">
-      <img src="./assets/img/program/elizabeth-van-dam.jpg" width="100%" alt="Creatie van Elizabeth van Dam">
-      <div class="info">
-        <h1>Elizabeth van Dam</h1>
-        <h2>21 Mei</h2>
-      </div>
-    </div>
+    </a>
+  <?php endforeach; ?>
+
   </article>
 
-  <article class="info-alg">
+  <article class="info-alg mobi-in">
     <div>
       <p>DOK wil nadrukkelijk nieuwe initiatieven, beginnende organisaties en tal van projecten hosten en ontvangen op de site.</p>
       <p>DOK stelt infrastructuur ter beschikking: een grote buitenzone met arena, een strand, een overdekte ruimte, en een kantine met een klein podium. DOK is een ontmoetings- en werkplek die mensen en organisaties wil inspireren om ideëen te ontwikkelen en die vervolgens ook te realiseren.</p>
