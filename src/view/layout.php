@@ -45,7 +45,7 @@
           <li><a href="#">Tank</a></li>
         </ul>
 
-        <li><a href="#">Programma</a></li>
+        <li><a href="index.php?page=events">Programma</a></li>
         <li><a href="#">Praktisch</a></li>
         <li><a href="#">Nieuws</a></li>
         <li><a href="#">DokBewoners</a></li>
@@ -77,7 +77,7 @@
             <a href="http://twitter.com/#!/dokgent" target="_blank" class="twitter icon"><span class="hidden">Twitter</span></a>
           </div>
 
-          <main>
+          <main <?php if($_GET['page'] == 'home') echo 'style="background: #ebca69;"' ?>>
             <?php if ($_GET['page'] != 'home'){
               echo $content;
             } else {?>
@@ -92,10 +92,11 @@
                 <h1>2017</h1>
                 <p>De ontmoetingsplek voor elke Gentenaar, een hangplek voor piepjong, jong, minder jong en ronduit oud. Maar ook een platform voor creatie en een werkplek, een plaats voor organisaties of indivduen op zoek naar samenwerking en inspirerende kruisbestuivingen.</p>
               </article>
+
               <div class="quick-nav">
                 <ul class="quick-main-nav quick-visible">
                   <li><a href="#" class="zones-btn"><p>Zones</p></a></li>
-                  <li><a href="#"><p>Programma</p></a></li>
+                  <li><a href="index.php?page=events"><p>Programma</p></a></li>
                   <li><a href="#"><p>Praktisch</p></a></li>
                   <li><a href="#"><p>Nieuws</p></a></li>
                   <li><a href="#"><p>DokBewoners</p></a></li>
@@ -124,7 +125,29 @@
 
       </section>
 
-      <?php if ($_GET['page'] == 'home') echo $content; ?>
+      <?php if ($_GET['page'] == 'home'){
+        echo $content; 
+      }else{?>
+        <footer class="sponsors">
+
+          <img class="own" src="./assets/img/dok/dokgentlogo.png" alt="Dok Gent">
+
+          <img src="./assets/img/sponsors/biofresh_ok.png" alt="Biofresh">
+          <img src="./assets/img/sponsors/bionade_ok.png" alt="Bionade">
+          <img src="./assets/img/sponsors/eulala_ok.png" alt="Eulala">
+          <img src="./assets/img/sponsors/pa-cirq.png" alt="Cirq">
+          <img src="./assets/img/sponsors/pa-democrazy.png" alt="Democrazy">
+          <img src="./assets/img/sponsors/pa-gent.png" alt="Gent">
+          <img src="./assets/img/sponsors/pa-thuis.png" alt="Thuis">
+          <img src="./assets/img/sponsors/pa-vedett.png" alt="Vedett">
+          <img src="./assets/img/sponsors/pa-vlaamse-overheid.png" alt="Vlaamse Overheid">
+          <img src="./assets/img/sponsors/pepsi_ok.png" alt="Pepsi">
+          <img src="./assets/img/sponsors/sogent_ok.png" alt="Sogent">
+
+
+        </footer>
+      <?php } ?>
+
 
     </div>
 

@@ -28,10 +28,13 @@
     <h3 class="big-letter letter-o">O</h3>
 
     <?php foreach ($events as $event):
+      $foldername = str_replace(' ', '', $event['title']);
+      $d = preg_replace('/[^a-z\d]+/i', '', $foldername);
+      $file = explode(' ',trim($event['image']));
       $images = explode(" ", $event['image']);
     ?>
-    <a href="#" class="item">
-      <img src="./assets/img/program/<?php echo str_replace(array(";",":"), "", $event['title']) . "/" . $images[0] ?>" width="100%" alt="<?php echo $event['title'] ?>">
+    <a href="index.php?page=detail&amp;id=<?php echo $event['id']?>" class="item">
+      <img src="./assets/img/program/<?php echo $d . '/'. $file[0] ?>" width="100%" alt="<?php echo $event['title'] ?>">
       <div class="info">
         <h1><?php echo strtolower($event['title']); ?></h1>
         <h2><?php echo date('d M', strtotime($event['start'])); ?></h2>

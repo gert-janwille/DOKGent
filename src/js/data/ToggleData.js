@@ -5,7 +5,8 @@ export default [
     stateI: `nav-close`,
     stateII: `nav-open`,
     sync: false,
-    tway: false
+    tway: false,
+    location: `all`
   },
   {
     selector: `.close-menu`,
@@ -13,7 +14,8 @@ export default [
     stateI: `nav-close`,
     stateII: `nav-open`,
     sync: false,
-    tway: false
+    tway: false,
+    location: `all`
   },
   {
     selector: `.toggle-list`,
@@ -21,7 +23,8 @@ export default [
     stateI: `close-list`,
     stateII: `open-list`,
     sync: false,
-    tway: false
+    tway: false,
+    location: `all`
   },
   {
     selector: `.zones-btn`,
@@ -29,7 +32,8 @@ export default [
     stateI: `quick-invisible`,
     stateII: `quick-visible`,
     sync: false,
-    tway: false
+    tway: false,
+    location: `home`
   },
   {
     selector: `.close-zones`,
@@ -37,7 +41,8 @@ export default [
     stateI: `quick-visible`,
     stateII: `quick-invisible`,
     sync: false,
-    tway: false
+    tway: false,
+    location: `home`
   },
   {
     selector: `.search-overlay`,
@@ -45,7 +50,8 @@ export default [
     stateI: `n-away`,
     stateII: `away`,
     sync: true,
-    tway: false
+    tway: false,
+    location: `all`
   },
   {
     selector: `.search`,
@@ -53,6 +59,7 @@ export default [
     stateI: `away`,
     stateII: `n-away`,
     sync: true,
-    tway: true
+    tway: true,
+    location: `all`
   }
 ];

@@ -11,10 +11,14 @@ $routes = array(
     'controller' => 'Home',
     'action' => 'index'
   ),
-  'event' => array(
+  'events' => array(
     'controller' => 'Events',
     'action' => 'index'
   ),
+  'detail' => array(
+    'controller' => 'Events',
+    'action' => 'detail'
+  )
 );
 
 if(empty($_GET['page'])) {

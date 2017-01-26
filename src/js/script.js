@@ -11,23 +11,42 @@ let bar, deviceHeight;
 const init = () => {
   const $progressFill = document.querySelector(`.fill-load`);
   const $footer = document.querySelector(`footer`);
-
   bar = document.querySelector(`.progress-bar`);
-  deviceHeight = bar.clientHeight;
 
-  ToggleData.map(el => document.querySelector(el.selector).addEventListener(`click`, e => toggleMenu(e, (isArray(el.element)) ? [document.querySelector(el.element[0]), document.querySelector(el.element[1])] : document.querySelector(el.element), el.stateI, el.stateII, el.sync, el.tway)));
+  if (location.search === ``) deviceHeight = bar.clientHeight;
 
-  window.addEventListener(`resize`, () => deviceHeight = bar.clientHeight);
-
+  window.addEventListener(`resize`, () => {
+    if (location.search === ``) deviceHeight = bar.clientHeight;
+  });
   document.addEventListener(`scroll`, () => {
-    window.requestAnimationFrame(() => scrollProgressBar($progressFill, deviceHeight, $footer));
+    if (location.search === ``) window.requestAnimationFrame(() => scrollProgressBar($progressFill, deviceHeight, $footer));
   });
 
-  scrollProgressBar($progressFill, deviceHeight, $footer);
+  initMenus().map(el => document.querySelector(el.selector).addEventListener(`click`, e => toggleMenu(e, (isArray(el.element)) ? [document.querySelector(el.element[0]), document.querySelector(el.element[1])] : document.querySelector(el.element), el.stateI, el.stateII, el.sync, el.tway)));
 
+  if (location.search === ``) scrollProgressBar($progressFill, deviceHeight, $footer);
+};
+
+const initMenus = () => {
+  const pageElements = [];
+
+  ToggleData.map(el => {
+    switch (el.location) {
+    case `all`:
+      pageElements.push(el);
+      break;
+
+    case `home`:
+      if (location.search === ``) pageElements.push(el);
+      break;
+    }
+  });
+
+  return pageElements;
 };
 
 const scrollProgressBar = (progressFill, deviceHeight, footer) => {
+
   const max = (document.body.scrollHeight - window.innerHeight) - deviceHeight - footer.scrollHeight;
   const endScroll = (document.body.scrollHeight - window.innerHeight) - footer.scrollHeight;
 
