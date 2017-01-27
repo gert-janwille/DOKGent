@@ -25,6 +25,22 @@ export const toggleMenu = (e, el, stateI, stateII, sync, tway) => {
   }
 };
 
+export const toggleFilter = (e, header, btn) => {
+  e.preventDefault();
+
+  const isOpen = header.classList.contains(`filter-open`);
+
+  if (isOpen) {
+    header.classList.remove(`filter-open`);
+    btn.classList.remove(`filter-up`);
+    btn.classList.add(`filter-down`);
+  } else {
+    header.classList.add(`filter-open`);
+    btn.classList.remove(`filter-down`);
+    btn.classList.add(`filter-up`);
+  }
+};
+
 export const toggleClasses = (el, from, to) => {
   el.classList.remove(from);
   el.classList.add(to);
@@ -32,5 +48,6 @@ export const toggleClasses = (el, from, to) => {
 
 export default {
   toggleMenu,
-  toggleClasses
+  toggleClasses,
+  toggleFilter
 };

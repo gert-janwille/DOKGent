@@ -21,6 +21,10 @@ class EventsController extends Controller {
     $start = $alltags - count($tags)+1;
     $end = $start + count($tags)-1;
 
+    if (!empty($_POST['search'])) {
+      $conditions = $this->searchbybar();
+    }
+
     foreach ($_POST as $key => $value) {
       if (substr( $key, 0, 8 ) === "location") array_push($locations, $value);
       if (substr( $key, 0, 4 ) === "item") array_push($tags, $value);
@@ -57,7 +61,14 @@ class EventsController extends Controller {
     $this->set('locationArray', $locations);
     $this->set('tagArray', $tags);
 
-    $this->set('events', $this->eventDAO->search($conditions));
+    if(empty($conditions)){
+      $this->set('db_all', true);
+      $this->set('events', $this->eventDAO->selectAll());
+    }else{
+      $this->set('db_all', false);
+      $this->set('events', $this->eventDAO->search($conditions));
+    }
+
     $this->set('locationTags', $this->eventDAO->selectAllTags('locations'));
     $this->set('itemTags', $this->eventDAO->selectAllTags('tags'));
     $this->set('eventDates', $this->eventDAO->selectAllEventDates());
@@ -65,6 +76,18 @@ class EventsController extends Controller {
 
   public function Detail(){
     $this->set('event', $this->eventDAO->selectById($_GET['id']));
+  }
+
+  private function searchbybar(){
+    $keys = explode(' ', $_POST['search']);
+    for ($searchKey=0; $searchKey < count($keys); $searchKey++) {
+      $conditions[$searchKey] = array(
+        'field' => 'title',
+        'comparator' => 'like',
+        'value' => $keys[$searchKey]
+      );
+    }
+    return $conditions;
   }
 
 }

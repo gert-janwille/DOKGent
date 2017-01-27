@@ -937,7 +937,7 @@ form {
     height: 5vh;
     width: 25%;
     font-family: Avenir;
-    font-size: 2rem;
+    font-size: 2vw;
   }
 }
 
@@ -990,6 +990,8 @@ form {
 }
 
 .tag {
+  display: block;
+  height: 20%;
   min-width: 10%;
   margin-left: 2%;
 
@@ -1052,7 +1054,7 @@ form {
 
     & h1 {
       color: white;
-      font-size: 2.4rem;
+      font-size: 2.4vw;
       font-weight: bold;
     }
 
@@ -1141,7 +1143,28 @@ form {
   }
 }
 
+.filter-arrow {
+  display: none;
+}
+
 /*START MEDIA*/
+
+@media only screen and (max-width: 920px) {
+
+  .bottom-program {
+    flex-direction: column;
+  }
+
+  .tags {
+    width: 100%;
+    margin: 0 0 1vh;
+  }
+
+  .tag {
+    height: auto;
+    margin-bottom: 1vh;
+  }
+}
 
 @media only screen and (max-width: 770px) {
 
@@ -1319,6 +1342,119 @@ form {
   .own {
     min-width: 100px;
   }
+
+  .program-header {
+    margin-top: 4vh;
+    height: 22vw;
+    overflow: hidden;
+  }
+
+  .filter-arrow {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0 0 5vw;
+    margin-top: -5vw;
+
+    & a {
+      background: url(../assets/svg/Icons/Arrow-left.svg) no-repeat center;
+      width: 4vw;
+      height: 4vw;
+      transition: all .3s ease;
+
+      &:hover {
+        transform: rotate(-90deg) scale(1.4);
+      }
+    }
+
+    & p {
+      color: white;
+      font-size: 2vw;
+    }
+
+  }
+
+  .top-program {
+
+    & .date-picker {
+      width: 100%;
+    }
+  }
+
+  .bottom-program {
+    position: relative;
+
+    & input[type=submit] {
+      width: 4vw;
+      height: 4vw;
+      position: absolute;
+      top: 5%;
+    }
+  }
+
+  .filter-open {
+    height: 50vw;
+  }
+
+  .item-one {
+    width: 49%;
+    height: 33vw;
+  }
+
+  .item-two {
+    width: 49%;
+    height: 43vw;
+    margin-left: 1%;
+  }
+
+  .item-tree {
+    width: 49%;
+    height: 33vw;
+    margin-top: -10%;
+  }
+
+  .item-four {
+    width: 49%;
+    height: 23vw;
+    margin: 1.5% 0 0 1%;
+  }
+
+  .item-five {
+    width: 100%;
+    height: 25vw;
+    margin-top: 1%;
+  }
+
+  .item-six {
+    width: 49%;
+    height: 50vw;
+    margin: 0 1% 0 0;
+  }
+
+  .item-seven {
+    width: 49%;
+    height: 50vw;
+    margin: 0 0 1%;
+  }
+}
+
+@media only screen and (max-width: 660px) {
+
+  .filter-open {
+    height: 60vw;
+  }
+}
+
+@media only screen and (max-width: 590px) {
+
+  .program-header {
+    height: 25vw;
+  }
+
+  .filter-open {
+    height: 60vw;
+  }
 }
 
 @media only screen and (max-width: 580px) {
@@ -1466,6 +1602,17 @@ form {
   .newsletter {
     width: 100%;
   }
+
+  .filter-open {
+    height: 70vw;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+
+  .filter-open {
+    height: 85vw;
+  }
 }
 
 @media only screen and (max-width: 460px) {
@@ -1520,4 +1667,113 @@ form {
   .big-letter {
     display: none;
   }
+
+  .program-header {
+    height: 35vw;
+  }
+
+  .filter-open {
+    height: 50vh;
+  }
+
+  .top-program {
+    flex-wrap: wrap;
+
+    & select {
+      font-size: 3vw;
+    }
+  }
+}
+
+@media only screen and (max-width: 320px) {
+
+  .program-header {
+    height: 43vw;
+  }
+
+  .bottom-program input[type=submit] {
+    background-size: contain;
+    width: 5vw;
+    height: 5vw;
+  }
+
+  .filter-arrow {
+
+    & p {
+      font-size: 4vw;
+    }
+
+    & a {
+      background-size: contain;
+      width: 5vw;
+      height: 5vw;
+    }
+  }
+
+  .filter-open {
+    height: 80vh;
+  }
+
+  .tags {
+    flex-direction: column;
+
+    & h2 {
+      margin-bottom: 3vw;
+      border: none;
+    }
+  }
+
+  .item-one {
+    width: 100%;
+    height: 45vw;
+    margin: 0 0 1%;
+  }
+
+  .item-two {
+    width: 100%;
+    height: 45vw;
+    margin: 0 0 1%;
+  }
+
+  .item-tree {
+    width: 100%;
+    height: 45vw;
+    margin: 0 0 1%;
+  }
+
+  .item-four {
+    width: 100%;
+    height: 45vw;
+    margin: 0 0 1%;
+  }
+
+  .item-five {
+    width: 100%;
+    height: 45vw;
+    margin: 0 0 1%;
+  }
+
+  .item-six {
+    width: 100%;
+    height: 45vw;
+    margin: 0 0 1%;
+  }
+
+  .item-seven {
+    width: 100%;
+    height: 45vw;
+    margin: 0 0 1%;
+  }
+
+  .event-item .text-event-item h1 {
+    font-size: 8vw;
+  }
+}
+
+.filter-up {
+  transform: rotate(90deg);
+}
+
+.filter-down {
+  transform: rotate(-90deg);
 }

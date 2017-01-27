@@ -1,6 +1,6 @@
 import {ToggleData} from './data/';
 
-import {toggleMenu} from './modules/util/Toggle';
+import {toggleMenu, toggleFilter} from './modules/util/Toggle';
 import {mapVal} from './modules/util/Mathutil';
 
 import {isArray} from 'lodash';
@@ -10,6 +10,8 @@ let bar, deviceHeight;
 
 const init = () => {
   const $progressFill = document.querySelector(`.fill-load`);
+  const $Pheader = document.querySelector(`.program-header`);
+  const $filterbtn = document.querySelector(`.filter-down`);
   const $footer = document.querySelector(`footer`);
   bar = document.querySelector(`.progress-bar`);
 
@@ -25,7 +27,10 @@ const init = () => {
   initMenus().map(el => document.querySelector(el.selector).addEventListener(`click`, e => toggleMenu(e, (isArray(el.element)) ? [document.querySelector(el.element[0]), document.querySelector(el.element[1])] : document.querySelector(el.element), el.stateI, el.stateII, el.sync, el.tway)));
 
   if (location.search === ``) scrollProgressBar($progressFill, deviceHeight, $footer);
+
+  if (location.search === `?page=events`) $filterbtn.addEventListener(`click`, e => toggleFilter(e, $Pheader, $filterbtn));
 };
+
 
 const initMenus = () => {
   const pageElements = [];

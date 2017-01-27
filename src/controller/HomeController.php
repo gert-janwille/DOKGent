@@ -12,8 +12,9 @@ class HomeController extends Controller {
   }
 
   public function index() {
-    $this->set('events', $this->eventDAO->selectAll(5));
+    // var_dump($_POST);
 
+    $this->set('events', $this->eventDAO->selectAll(5));
   }
 
 }

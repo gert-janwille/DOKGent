@@ -62,7 +62,7 @@
         <article class="top-nav">
           <a href="#" class="menu icon"><span class="hidden">Menu</span></a>
           <a href="#" class="search icon"><span class="hidden">Zoek</span></a>
-          <form class="search-header away" action="index.php" method="GET">
+          <form class="search-header away" action="index.php?page=events" method="post">
             <input type="text" name="search" placeholder="Naar wat zoekt u?">
             <input type="submit" name="action" value="Zoeken">
           </form>
@@ -126,7 +126,7 @@
       </section>
 
       <?php if ($_GET['page'] == 'home'){
-        echo $content; 
+        echo $content;
       }else{?>
         <footer class="sponsors">
 

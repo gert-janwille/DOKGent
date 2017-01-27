@@ -17,6 +17,11 @@
     <div class="bottom-program">
       <h1>2017</h1>
 
+      <div class="filter-arrow">
+        <p>filter</p>
+        <a href="#" class="filter-down"><span class="hidden">More</span></a>
+      </div>
+
       <article class="location-tag tags">
         <h2>Locatie</h2>
         <div class="tag-container">
@@ -101,7 +106,7 @@
   <article class="<?php echo $classArtikel ?> event-item">
     <img src="./assets/img/program/<?php echo $d . '/'. $file[0] ?>" height="100%" alt="">
     <a href="index.php?page=detail&amp;id=<?php echo $event['id'] ?>" class="text-event-item">
-      <h2><?php echo substr($event['locations'][0]['name'], 3);?></h2>
+      <h2><?php echo substr(($db_all) ? $event['name'] : $event['locations'][0]['name'], 3);?></h2>
       <h1><?php echo $event['title'] ?></h1>
 
       <div class="hover-event-item">
