@@ -9,6 +9,9 @@ import fetch from 'isomorphic-fetch';
 let bar, deviceHeight, form;
 
 const init = () => {
+
+  //if (document.readyState === `loading`) document.querySelector(`.loading`).style.display = `flex`;
+
   const $progressFill = document.querySelector(`.fill-load`);
   const $Pheader = document.querySelector(`.program-header`);
   const $filterbtn = document.querySelector(`.filter-down`);
