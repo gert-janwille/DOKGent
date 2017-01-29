@@ -9,15 +9,23 @@ define('WWW_ROOT', __DIR__ . DS);
 $routes = array(
   'home' => array(
     'controller' => 'Home',
-    'action' => 'index'
+    'action' => 'index',
+    'json' => false
   ),
   'events' => array(
     'controller' => 'Events',
-    'action' => 'index'
+    'action' => 'index',
+    'json' => false
   ),
   'detail' => array(
     'controller' => 'Events',
-    'action' => 'detail'
+    'action' => 'detail',
+    'json' => false
+  ),
+  'api' => array(
+    'controller' => 'Api',
+    'action' => 'index',
+    'json' => true
   )
 );
 
@@ -37,4 +45,5 @@ require_once WWW_ROOT . 'controller' . DS . $controllerName . ".php";
 $controllerObj = new $controllerName();
 $controllerObj->route = $route;
 $controllerObj->filter();
-$controllerObj->render();
+
+if (!$route['json']) $controllerObj->render();

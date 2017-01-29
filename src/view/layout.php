@@ -29,6 +29,9 @@
   </head>
   <body>
 
+    <?php if(!empty($_SESSION['info'])): ?><div class="alert alert-success"><?php echo $_SESSION['info'];?></div><?php endif; ?>
+    <?php if(!empty($_SESSION['error'])): ?><div class="alert alert-danger"><?php echo $_SESSION['error'];?></div><?php endif; ?>
+
     <nav>
       <ul class="nav-container">
         <li><a href="#" class="w-icon align-right close-menu"><p>Close</p><span class="close"></span></a></li>
@@ -54,8 +57,6 @@
     </nav>
 
     <div class="container nav-close">
-      <?php if(!empty($_SESSION['info'])): ?><div class="alert alert-success"><?php echo $_SESSION['info'];?></div><?php endif; ?>
-      <?php if(!empty($_SESSION['error'])): ?><div class="alert alert-danger"><?php echo $_SESSION['error'];?></div><?php endif; ?>
 
       <section class="fixed-nav">
 

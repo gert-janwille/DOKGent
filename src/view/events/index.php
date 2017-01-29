@@ -105,7 +105,7 @@
   ?>
   <article class="<?php echo $classArtikel ?> event-item">
     <img src="./assets/img/program/<?php echo $d . '/'. $file[0] ?>" height="100%" alt="">
-    <a href="index.php?page=detail&amp;id=<?php echo $event['id'] ?>" class="text-event-item">
+    <a href="index.php?page=detail&amp;id=<?php echo ($db_all) ? $event['event_id'] : $event['id'] ?>" class="text-event-item">
       <h2><?php echo substr(($db_all) ? $event['name'] : $event['locations'][0]['name'], 3);?></h2>
       <h1><?php echo $event['title'] ?></h1>
 

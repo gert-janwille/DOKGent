@@ -77,7 +77,7 @@ class EventsController extends Controller {
   public function Detail(){
     $this->set('event', $this->eventDAO->selectById($_GET['id']));
   }
-
+  
   private function searchbybar(){
     $keys = explode(' ', $_POST['search']);
     for ($searchKey=0; $searchKey < count($keys); $searchKey++) {

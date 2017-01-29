@@ -63,5 +63,4 @@ class Controller {
     unset($_SESSION['info']);
     unset($_SESSION['error']);
   }
-
 }

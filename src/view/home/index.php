@@ -124,12 +124,13 @@
         <label for="newsletter">Blijf op de hoogte</label>
 
         <div class="input-newsletter">
-          <input type="email" name="newsletter" placeholder="Jouw e-mail" id="newsletter">
+          <input type="email" name="email" placeholder="Jouw e-mail" id="newsletter">
           <input type="submit" name="action" value="Hou me op de hoogte">
         </div>
 
         <p>We sturen regelmatig mails om jouw op de hoogte te houden van onze nieuwe updates</p>
       </form>
+
 
     </div>
 <h3 class="big-letter letter-t">T</h3>

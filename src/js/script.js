@@ -4,9 +4,9 @@ import {toggleMenu, toggleFilter} from './modules/util/Toggle';
 import {mapVal} from './modules/util/Mathutil';
 
 import {isArray} from 'lodash';
-// import fetch from 'isomorphic-fetch';
+import fetch from 'isomorphic-fetch';
 
-let bar, deviceHeight;
+let bar, deviceHeight, form;
 
 const init = () => {
   const $progressFill = document.querySelector(`.fill-load`);
@@ -29,6 +29,10 @@ const init = () => {
   if (location.search === ``) scrollProgressBar($progressFill, deviceHeight, $footer);
 
   if (location.search === `?page=events`) $filterbtn.addEventListener(`click`, e => toggleFilter(e, $Pheader, $filterbtn));
+
+  form = document.querySelector(`.event-filter`);
+
+  if (location.search === `?page=events`) form.addEventListener(`submit`, submitHandler);
 };
 
 
@@ -64,6 +68,35 @@ const scrollProgressBar = (progressFill, deviceHeight, footer) => {
 
   const scrolVal = mapVal(scroll - deviceHeight, header, max, 0, 100);
   progressFill.style.height = `${scrolVal}%`;
+};
+
+const submitHandler = e => {
+  e.preventDefault();
+
+  const formData  = new FormData();
+
+  for (let i = 0;i < form.elements.length;i ++) {
+    const el = form.elements[i];
+
+    if (el.name === `date`) {
+      formData.append(el.name, el.value);
+    } else {
+      if (el.name.startsWith(`item`) || el.name.startsWith(`location`)) {
+        if (el.checked) formData.append(el.name, el.value);
+      }
+    }
+  }
+
+  // TODO: make class api for these things & eventlistner on change form
+  // maybe nee to copy the for loop form elements to add seperated event listenrs
+
+  const method = `POST`;
+  const body = formData;
+  const headers = new Headers({'x-requested-with': `ajax`});
+
+  fetch(`index.php?page=api&fetch=filter`, {method, headers, body})
+    .then(r => r.json())
+    .then(b => console.log(b));
 };
 
 

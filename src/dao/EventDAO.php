@@ -77,7 +77,7 @@ class EventDAO extends DAO {
   }
 
   public function selectById($id) {
-    $sql = "SELECT * FROM `ma3_dok_events`LEFT OUTER JOIN `ma3_dok_events_locations` ON ma3_dok_events.id = ma3_dok_events_locations.event_id WHERE `id` = :id";
+    $sql = "SELECT * FROM `ma3_dok_events`LEFT OUTER JOIN `ma3_dok_events_locations` ON ma3_dok_events.id = ma3_dok_events_locations.event_id LEFT OUTER JOIN `ma3_dok_locations` ON ma3_dok_locations.id = ma3_dok_events_locations.location_id WHERE ma3_dok_events.id = :id";
     $stmt = $this->pdo->prepare($sql);
     $stmt->bindValue(':id', $id);
     $stmt->execute();
@@ -114,6 +114,30 @@ class EventDAO extends DAO {
     $stmt = $this->pdo->prepare($sql);
     $stmt->execute();
     return $stmt->fetchAll(PDO::FETCH_ASSOC);
+  }
+
+  public function insert($data) {
+    $errors = $this->getValidationErrors($data);
+    if(empty($errors)) {
+      $sql = "INSERT INTO `ma3_dok_newsletter` (`email`, `created`) VALUES (:email, :created)";
+      $stmt = $this->pdo->prepare($sql);
+      $stmt->bindValue(':email', $data['email']);
+      $stmt->bindValue(':created', $data['created']);
+      $stmt->execute();
+    }
+    return false;
+  }
+
+  public function getValidationErrors($data) {
+    $errors = array();
+    if(!isset($data['email'])) {
+      $errors['email'] = "Please fill in a email";
+    }
+    if(!isset($data['created'])) {
+      $errors['created'] = "There has been an internal error";
+    }
+
+    return $errors;
   }
 
   private function _getEventIdsFromResult(&$result) {
