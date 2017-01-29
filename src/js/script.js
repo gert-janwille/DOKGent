@@ -2,6 +2,7 @@ import {ToggleData} from './data/';
 
 import {toggleMenu, toggleFilter} from './modules/util/Toggle';
 import {mapVal} from './modules/util/Mathutil';
+import {html} from './modules/util/Html';
 
 import {isArray} from 'lodash';
 import fetch from 'isomorphic-fetch';
@@ -33,8 +34,10 @@ const init = () => {
 
   if (location.search === `?page=events`) $filterbtn.addEventListener(`click`, e => toggleFilter(e, $Pheader, $filterbtn));
 
+
   form = document.querySelector(`.event-filter`);
 
+  if (location.search === `?page=events`) for (let i = 0;i < form.elements.length;i ++) form.elements[i].addEventListener(`change`, submitHandler);
   if (location.search === `?page=events`) form.addEventListener(`submit`, submitHandler);
 };
 
@@ -99,7 +102,75 @@ const submitHandler = e => {
 
   fetch(`index.php?page=api&fetch=filter`, {method, headers, body})
     .then(r => r.json())
-    .then(b => console.log(b));
+    .then(data => {
+      const myNode = document.querySelector(`.program-container`);
+      while (myNode.firstChild) {
+        myNode.removeChild(myNode.firstChild);
+      }
+
+      const max = data.length;
+      let elCounter = 0;
+
+      data.map(el => {
+        makeItem(el, elCounter, max);
+        elCounter ++;
+      });
+    });
+};
+
+const makeItem = (el, elCounter) => {
+  const $articleContainer = document.querySelector(`.program-container`);
+
+  let classArtikel;
+  switch (elCounter % 7) {
+  case 0:
+    classArtikel = `item-one`;
+    break;
+  case 1:
+    classArtikel = `item-two`;
+    break;
+  case 2:
+    classArtikel = `item-tree`;
+    break;
+  case 3:
+    classArtikel = `item-four`;
+    break;
+  case 4:
+    classArtikel = `item-five`;
+    break;
+  case 5:
+    classArtikel = `item-six`;
+    break;
+  case 6:
+    classArtikel = `item-seven`;
+    break;
+  }
+
+  console.log(classArtikel);
+
+  const firstLine = el.description.split(`.`)[0];
+  const dateObject = new Date(Date.parse(el.start));
+
+  const dag = dateObject.getDate();
+
+  const monthNames = [`January`, `February`, `March`, `April`, `May`, `June`,
+    `July`, `August`, `September`, `October`, `November`, `December`
+  ];
+  const maand = dateObject.getMonth();
+
+  const article = html(`<article class="${classArtikel} event-item">
+    <img src="./assets/img/program/${el.image.split(` `)[0]}" height="100%" alt="">
+    <a href="index.php?page=detail&amp;id=${el.id}" class="text-event-item">
+      <h2>${el.locations[0].name}</h2>
+      <h1>${el.title}</h1>
+
+      <div class="hover-event-item">
+        <p>${firstLine}</p>
+        <p class="time-event-item">${dag, monthNames[maand]}</p>
+      </div>
+    </a>
+  </article>`);
+  $articleContainer.appendChild(article);
 };
 
 

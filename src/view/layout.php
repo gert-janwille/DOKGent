@@ -135,17 +135,17 @@
 
           <img class="own" src="./assets/img/dok/dokgentlogo.png" alt="Dok Gent">
 
-          <img src="./assets/img/sponsors/biofresh_ok.png" alt="Biofresh">
-          <img src="./assets/img/sponsors/bionade_ok.png" alt="Bionade">
-          <img src="./assets/img/sponsors/eulala_ok.png" alt="Eulala">
-          <img src="./assets/img/sponsors/pa-cirq.png" alt="Cirq">
-          <img src="./assets/img/sponsors/pa-democrazy.png" alt="Democrazy">
-          <img src="./assets/img/sponsors/pa-gent.png" alt="Gent">
-          <img src="./assets/img/sponsors/pa-thuis.png" alt="Thuis">
-          <img src="./assets/img/sponsors/pa-vedett.png" alt="Vedett">
-          <img src="./assets/img/sponsors/pa-vlaamse-overheid.png" alt="Vlaamse Overheid">
-          <img src="./assets/img/sponsors/pepsi_ok.png" alt="Pepsi">
-          <img src="./assets/img/sponsors/sogent_ok.png" alt="Sogent">
+          <img src="/assets/img/sponsors/biofresh_ok.png" alt="Biofresh">
+          <img src="/assets/img/sponsors/bionade_ok.png" alt="Bionade">
+          <img src="/assets/img/sponsors/eulala_ok.png" alt="Eulala">
+          <img src="/assets/img/sponsors/pa-cirq.png" alt="Cirq">
+          <img src="/assets/img/sponsors/pa-democrazy.png" alt="Democrazy">
+          <img src="/assets/img/sponsors/pa-gent.png" alt="Gent">
+          <img src="/assets/img/sponsors/pa-thuis.png" alt="Thuis">
+          <img src="/assets/img/sponsors/pa-vedett.png" alt="Vedett">
+          <img src="/assets/img/sponsors/pa-vlaamse-overheid.png" alt="Vlaamse Overheid">
+          <img src="/assets/img/sponsors/pepsi_ok.png" alt="Pepsi">
+          <img src="/assets/img/sponsors/sogent_ok.png" alt="Sogent">
 
 
         </footer>

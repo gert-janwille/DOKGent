@@ -34,7 +34,7 @@
       $images = explode(" ", $event['image']);
     ?>
     <a href="index.php?page=detail&amp;id=<?php echo $event['id']?>" class="item">
-      <img src="./assets/img/program/<?php echo $d . '/'. $file[0] ?>" width="100%" alt="<?php echo $event['title'] ?>">
+      <img src="./assets/img/program/<?php echo $file[0] ?>" width="100%" alt="<?php echo $event['title'] ?>">
       <div class="info">
         <h1><?php echo strtolower($event['title']); ?></h1>
         <h2><?php echo date('d M', strtotime($event['start'])); ?></h2>

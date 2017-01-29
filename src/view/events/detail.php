@@ -14,9 +14,6 @@
   $lines = explode(".", $event['description']);
   $maxlines = count($lines);
 
-  $foldername = str_replace(' ', '', $event['title']);
-  $d = preg_replace('/[^a-z\d]+/i', '', $foldername);
-
   $file = explode(' ',trim($event['image']));
   $maxfiles = count($file);
 
@@ -28,7 +25,7 @@
 
     <div class="img-title">
       <h1><?php echo $event['title']; ?></h1>
-      <img src="./assets/img/program/<?php echo $d . '/'. $file[0] ?>" height="100%" alt="<?php echo $event['title']; ?>">
+      <img src="./assets/img/program/<?php echo $file[0] ?>" height="100%" alt="<?php echo $event['title']; ?>">
     </div>
 
     <p><?php echo $lines[0] .'. '. $lines[1].'.'; ?></p>
@@ -42,7 +39,7 @@
       <p><?php for ($i=round($maxlines/2); $i < $maxlines ; $i++) echo $lines[$i]; ?></p>
     </div>
 
-    <img src="./assets/img/program/<?php echo $d . '/'. $file[$secondFile] ?>" height="100%" alt="<?php echo $event['title']; ?>">
+    <img src="./assets/img/program/<?php echo $file[$secondFile] ?>" height="100%" alt="<?php echo $event['title']; ?>">
   </article>
 
   <article class="detail-info">

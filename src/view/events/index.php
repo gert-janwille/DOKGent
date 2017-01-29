@@ -98,13 +98,11 @@
         }
 
         $eventCounter++;
-
-        $foldername = str_replace(' ', '', $event['title']);
-        $d = preg_replace('/[^a-z\d]+/i', '', $foldername);
+        
         $file = explode(' ',trim($event['image']));
   ?>
   <article class="<?php echo $classArtikel ?> event-item">
-    <img src="./assets/img/program/<?php echo $d . '/'. $file[0] ?>" height="100%" alt="">
+    <img src="./assets/img/program/<?php echo $file[0] ?>" height="100%" alt="">
     <a href="index.php?page=detail&amp;id=<?php echo ($db_all) ? $event['event_id'] : $event['id'] ?>" class="text-event-item">
       <h2><?php echo substr(($db_all) ? $event['name'] : $event['locations'][0]['name'], 3);?></h2>
       <h1><?php echo $event['title'] ?></h1>
