@@ -85,7 +85,7 @@
     </header>
     <p>
       DOK gaat in een diepe winterslaap, maar zijn DOKbewoners zijn dat allerminst van plan. We geven je graag een overzicht van wat iedereen zoal van plan is, het komende jaar. Metalcrew gaf dit jaar verschillendeworkshops‘smeden en lassen voor kinderen’ onder de markt, en gaat daar nog even mee verder op DOK.
-      <span class="read-more"><a href="#">Read more</a></span>
+      <span class="read-more"><a href="http://dokgent.be/dokbewoners-wat-na-dok-2016/" target="_blank">Read more</a></span>
     </p>
   </article>
 

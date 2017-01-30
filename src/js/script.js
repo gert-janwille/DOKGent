@@ -14,28 +14,26 @@ const init = () => {
   const $Pheader = document.querySelector(`.program-header`);
   const $filterbtn = document.querySelector(`.filter-down`);
   const $footer = document.querySelector(`footer`);
+
   bar = document.querySelector(`.progress-bar`);
+  form = document.querySelector(`.event-filter`);
 
-  if (location.search === ``) deviceHeight = bar.clientHeight;
+  if (location.search === ``) {
+    deviceHeight = bar.clientHeight;
+    scrollProgressBar($progressFill, deviceHeight, $footer);
 
-  window.addEventListener(`resize`, () => {
-    if (location.search === ``) deviceHeight = bar.clientHeight;
-  });
-  document.addEventListener(`scroll`, () => {
-    if (location.search === ``) window.requestAnimationFrame(() => scrollProgressBar($progressFill, deviceHeight, $footer));
-  });
+    window.addEventListener(`resize`, () => deviceHeight = bar.clientHeight);
+    document.addEventListener(`scroll`, () => window.requestAnimationFrame(() => scrollProgressBar($progressFill, deviceHeight, $footer)));
+  }
+
+  if (location.search === `?page=events`) {
+    $filterbtn.addEventListener(`click`, e => toggleFilter(e, $Pheader, $filterbtn));
+    for (let i = 0;i < form.elements.length;i ++) form.elements[i].addEventListener(`change`, submitHandler);
+    form.addEventListener(`submit`, submitHandler);
+  }
 
   initMenus().map(el => document.querySelector(el.selector).addEventListener(`click`, e => toggleMenu(e, (isArray(el.element)) ? [document.querySelector(el.element[0]), document.querySelector(el.element[1])] : document.querySelector(el.element), el.stateI, el.stateII, el.sync, el.tway)));
 
-  if (location.search === ``) scrollProgressBar($progressFill, deviceHeight, $footer);
-
-  if (location.search === `?page=events`) $filterbtn.addEventListener(`click`, e => toggleFilter(e, $Pheader, $filterbtn));
-
-
-  form = document.querySelector(`.event-filter`);
-
-  if (location.search === `?page=events`) for (let i = 0;i < form.elements.length;i ++) form.elements[i].addEventListener(`change`, submitHandler);
-  if (location.search === `?page=events`) form.addEventListener(`submit`, submitHandler);
 };
 
 const initMenus = () => {
@@ -70,6 +68,22 @@ const scrollProgressBar = (progressFill, deviceHeight, footer) => {
 
   const scrolVal = mapVal(scroll - deviceHeight, header, max, 0, 100);
   progressFill.style.height = `${scrolVal}%`;
+
+  letterAnimation(scroll);
+};
+
+const letterAnimation = scroll => {
+  const $letters = document.querySelectorAll(`.big-letter`);
+  const val = scroll * .02;
+
+  $letters.forEach((el, id) => {
+
+    let spacing = 30 + (id * 10);
+    if (id === 2) spacing -= 20;
+    if (id === 4) spacing -= 5;
+
+    el.style.marginTop = `${val - spacing}%`;
+  });
 };
 
 const submitHandler = e => {
