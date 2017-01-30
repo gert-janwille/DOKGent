@@ -38,7 +38,6 @@ const init = () => {
   if (location.search === `?page=events`) form.addEventListener(`submit`, submitHandler);
 };
 
-
 const initMenus = () => {
   const pageElements = [];
 
@@ -89,9 +88,6 @@ const submitHandler = e => {
       }
     }
   }
-
-  // TODO: make class api for these things & eventlistner on change form
-  // maybe nee to copy the for loop form elements to add seperated event listenrs
 
   const method = `POST`;
   const body = formData;
