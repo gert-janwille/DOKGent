@@ -2,6 +2,8 @@
 <html>
   <head>
     <meta charset="utf-8">
+    <meta http-equiv="Cache-control" content="public">
+    <meta http-equiv="Expires" content="30" />
     <meta name="description" content="De ontmoetingsplek voor elke Gentenaar, een hangplek voor piepjong, jong, minder jong en ronduit oud. Maar ook een platform voor creatie en een werkplek, een plaats voor organisaties of indivduen op zoek naar samenwerking en inspirerende kruisbestuivingen.">
     <meta name="keywords" content="DOK, Gent, 2017">
     <meta name="author" content="Gert-Jan Wille">
@@ -41,19 +43,19 @@
 
         <li><a href="#" class="w-icon toggle-list"><p>Zones</p><span class="more-menu"></span></a></li>
         <ul class="more-list close-list">
-          <li><a href="#">Zondag</a></li>
-          <li><a href="#">Kantine</a></li>
-          <li><a href="#">Park</a></li>
-          <li><a href="#">Markt</a></li>
-          <li><a href="#">Keuken</a></li>
-          <li><a href="#">Sport</a></li>
-          <li><a href="#">Tank</a></li>
+          <li><a href="http://dokgent.be/zondag/" target="_blank">Zondag</a></li>
+          <li><a href="http://dokgent.be/kantine/" target="_blank">Kantine</a></li>
+          <li><a href="http://dokgent.be/19230-2/" target="_blank">Park</a></li>
+          <li><a href="http://dokgent.be/19213-2/" target="_blank">Markt</a></li>
+          <li><a href="http://dokgent.be/19219-2/" target="_blank">Keuken</a></li>
+          <li><a href="http://dokgent.be/sport/" target="_blank">Sport</a></li>
+          <li><a href="http://dokgent.be/doktank/" target="_blank">Tank</a></li>
         </ul>
 
         <li><a href="index.php?page=events">Programma</a></li>
-        <li><a href="#">Praktisch</a></li>
-        <li><a href="#">Nieuws</a></li>
-        <li><a href="#">DokBewoners</a></li>
+        <li><a href="http://dokgent.be/dok-info/praktisch/">Praktisch</a></li>
+        <li><a href="http://dokgent.be/blog/">Nieuws</a></li>
+        <li><a href="http://dokgent.be/bewoners/">DokBewoners</a></li>
 
       </ul>
     </nav>
@@ -100,20 +102,20 @@
                 <ul class="quick-main-nav quick-visible">
                   <li><a href="#" class="zones-btn"><p>Zones</p></a></li>
                   <li><a href="index.php?page=events"><p>Programma</p></a></li>
-                  <li><a href="#"><p>Praktisch</p></a></li>
-                  <li><a href="#"><p>Nieuws</p></a></li>
-                  <li><a href="#"><p>DokBewoners</p></a></li>
+                  <li><a href="http://dokgent.be/dok-info/praktisch/" target="_blank"><p>Praktisch</p></a></li>
+                  <li><a href="http://dokgent.be/blog/" target="_blank"><p>Nieuws</p></a></li>
+                  <li><a href="http://dokgent.be/bewoners/" target="_blank"><p>DokBewoners</p></a></li>
                 </ul>
 
                 <ul class="zones quick-invisible">
-                  <li><a href="#"><p>Zondag</p></a></li>
-                  <li><a href="#"><p>Kantine</p></a></li>
-                  <li><a href="#"><p>Park</p></a></li>
-                  <li><a href="#"><p>Markt</p></a></li>
-                  <li><a href="#"><p>Bewoners</p></a></li>
-                  <li><a href="#"><p>Keuken</p></a></li>
-                  <li><a href="#"><p>Sport</p></a></li>
-                  <li><a href="#"><p>Tank</p></a></li>
+                  <li><a href="http://dokgent.be/zondag/" target="_blank"><p>Zondag</p></a></li>
+                  <li><a href="http://dokgent.be/kantine/" target="_blank"><p>Kantine</p></a></li>
+                  <li><a href="http://dokgent.be/19230-2/" target="_blank"><p>Park</p></a></li>
+                  <li><a href="http://dokgent.be/19213-2/" target="_blank"><p>Markt</p></a></li>
+                  <li><a href="http://dokgent.be/bewoners/" target="_blank"><p>Bewoners</p></a></li>
+                  <li><a href="http://dokgent.be/19219-2/" target="_blank"><p>Keuken</p></a></li>
+                  <li><a href="http://dokgent.be/sport/" target="_blank"><p>Sport</p></a></li>
+                  <li><a href="http://dokgent.be/doktank/" target="_blank"><p>Tank</p></a></li>
                   <div class="close-zones icon"><a href="#"><span class="hidden">close</span></a></div>
                 </ul>
               </div>
